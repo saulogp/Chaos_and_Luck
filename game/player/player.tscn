@@ -90,7 +90,7 @@ script = ExtResource("1_oijf2")
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ygptm")
 animation = &"idle"
-frame_progress = 0.64167
+frame_progress = 0.778037
 
 [node name="BodyCollision" type="CollisionShape2D" parent="."]
 position = Vector2(-4, 0)
