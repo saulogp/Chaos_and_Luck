@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ChaosAndLuck"
-run/main_scene="res://game/player/player.tscn"
+run/main_scene="res://game/scenes/floor.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
