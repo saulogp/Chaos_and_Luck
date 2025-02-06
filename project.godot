@@ -19,6 +19,12 @@ config/icon="res://icon.svg"
 
 Global="*res://game/global.gd"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/mode=3
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
