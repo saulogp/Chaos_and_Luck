@@ -1,6 +1,9 @@
-extends CharacterBody2D
+class_name PlayerController extends CharacterBody2D
 
 const SPEED = 300.0
+
+func _ready():
+	Global.player = self
 
 func _physics_process(_delta: float):
 	_moviment()
