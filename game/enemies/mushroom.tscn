@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://b51aux7rg1osr"]
+
+[ext_resource type="PackedScene" uid="uid://drygax70i74j3" path="res://game/enemies/enemy_base.tscn" id="1_mwgn0"]
+[ext_resource type="Texture2D" uid="uid://dl2vamoeb3dwb" path="res://game/assets/mushroom/Run.png" id="2_1l8x6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7agga"]
+atlas = ExtResource("2_1l8x6")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whyq4"]
+atlas = ExtResource("2_1l8x6")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qve1d"]
+atlas = ExtResource("2_1l8x6")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25vvf"]
+atlas = ExtResource("2_1l8x6")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rodud"]
+atlas = ExtResource("2_1l8x6")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2asew"]
+atlas = ExtResource("2_1l8x6")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nf8yb"]
+atlas = ExtResource("2_1l8x6")
+region = Rect2(900, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2aicj"]
+atlas = ExtResource("2_1l8x6")
+region = Rect2(1050, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eaf6r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7agga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whyq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qve1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25vvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rodud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2asew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nf8yb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2aicj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p45c0"]
+radius = 8.0
+
+[node name="Mushroom" node_paths=PackedStringArray("animated_sprite", "body_collision") instance=ExtResource("1_mwgn0")]
+animated_sprite = NodePath("AnimatedSprite")
+body_collision = NodePath("BodyCollision")
+speed = 80.0
+
+[node name="AnimatedSprite" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_eaf6r")
+animation = &"idle"
+
+[node name="BodyCollision" parent="." index="1"]
+position = Vector2(1, 7)
+shape = SubResource("CapsuleShape2D_p45c0")

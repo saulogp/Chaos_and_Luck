@@ -1,0 +1,83 @@
+[gd_scene load_steps=13 format=3 uid="uid://dxegbikm420ri"]
+
+[ext_resource type="PackedScene" uid="uid://drygax70i74j3" path="res://game/enemies/enemy_base.tscn" id="1_fys6y"]
+[ext_resource type="Texture2D" uid="uid://sm25wr7hwidt" path="res://game/assets/flight_eye/flight_eye_flight.png" id="2_jbxhp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmff6"]
+atlas = ExtResource("2_jbxhp")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldncq"]
+atlas = ExtResource("2_jbxhp")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p02p4"]
+atlas = ExtResource("2_jbxhp")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfbcs"]
+atlas = ExtResource("2_jbxhp")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvkj5"]
+atlas = ExtResource("2_jbxhp")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edo8j"]
+atlas = ExtResource("2_jbxhp")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8dl5"]
+atlas = ExtResource("2_jbxhp")
+region = Rect2(900, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwfw3"]
+atlas = ExtResource("2_jbxhp")
+region = Rect2(1050, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b6ma3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmff6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldncq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p02p4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfbcs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvkj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edo8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8dl5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwfw3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cig33"]
+
+[node name="FlightEye" node_paths=PackedStringArray("animated_sprite", "body_collision") instance=ExtResource("1_fys6y")]
+animated_sprite = NodePath("AnimatedSprite")
+body_collision = NodePath("BodyCollision")
+speed = 100.0
+
+[node name="AnimatedSprite" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_b6ma3")
+animation = &"idle"
+
+[node name="BodyCollision" parent="." index="1"]
+position = Vector2(4, 2)
+shape = SubResource("CircleShape2D_cig33")
