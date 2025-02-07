@@ -31,4 +31,5 @@ func _spawn_enemy():
 	add_child(enemy)
 
 func _on_spawn_enemy_timer_timeout() -> void:
-	_spawn_enemy()
+	if Global.player:
+		_spawn_enemy()
