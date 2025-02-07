@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b51aux7rg1osr"]
+[gd_scene load_steps=14 format=3 uid="uid://b51aux7rg1osr"]
 
 [ext_resource type="PackedScene" uid="uid://drygax70i74j3" path="res://game/enemies/enemy_base.tscn" id="1_mwgn0"]
 [ext_resource type="Texture2D" uid="uid://dl2vamoeb3dwb" path="res://game/assets/mushroom/Run.png" id="2_1l8x6"]
@@ -70,10 +70,15 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p45c0"]
 radius = 8.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_slkrq"]
+radius = 8.0
+height = 34.0
+
 [node name="Mushroom" node_paths=PackedStringArray("animated_sprite", "body_collision") instance=ExtResource("1_mwgn0")]
 animated_sprite = NodePath("AnimatedSprite")
 body_collision = NodePath("BodyCollision")
 speed = 80.0
+damage = 20
 
 [node name="AnimatedSprite" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_eaf6r")
@@ -82,3 +87,7 @@ animation = &"idle"
 [node name="BodyCollision" parent="." index="1"]
 position = Vector2(1, 7)
 shape = SubResource("CapsuleShape2D_p45c0")
+
+[node name="DamageCollision" parent="AreaDamage" index="0"]
+position = Vector2(1, 7)
+shape = SubResource("CapsuleShape2D_slkrq")
