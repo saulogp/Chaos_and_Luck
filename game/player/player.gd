@@ -6,8 +6,8 @@ const SPEED = 300.0
 const MAX_HEALTH = 100
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
 
+var takeHit = false
 var current_health: int
-
 var current_state: PlayerState:
 	set(new_value):
 		match new_value:
@@ -36,7 +36,12 @@ func _animation():
 	else:
 		animated_sprite.flip_h = false
 	
-	animated_sprite.play("idle")
+	if takeHit:
+		animated_sprite.play("hit")
+		await animated_sprite.animation_finished
+		takeHit = false
+	else:
+		animated_sprite.play("idle")
 
 func _moviment():
 	if current_state == PlayerState.Dead:
@@ -51,7 +56,8 @@ func _moviment():
 func _apply_damage(damage: int):
 	if current_state == PlayerState.Dead:
 		return
-	
+		
+	takeHit = true
 	current_health -= damage
 	print(current_health)
 	
