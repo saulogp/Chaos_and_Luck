@@ -5,6 +5,7 @@ enum PlayerState {Normal, Dead}
 const SPEED = 300.0
 const MAX_HEALTH = 100
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
+@onready var progress_bar_life: ProgressBar = $ProgressBarLife
 
 var takeHit = false
 var current_health: int
@@ -19,16 +20,20 @@ var current_state: PlayerState:
 func _ready():
 	Global.player = self
 	current_health = MAX_HEALTH
+	progress_bar_life.visible = true
+	progress_bar_life.max_value = MAX_HEALTH
 	current_state = PlayerState.Normal
 
 func _process(delta):
 	_animation()
+	progress_bar_life.value = current_health
 
 func _physics_process(_delta: float):
 	_moviment()
 
 func _animation():
 	if current_state == PlayerState.Dead:
+		progress_bar_life.visible = false
 		return
 		
 	if velocity.x > 0:
