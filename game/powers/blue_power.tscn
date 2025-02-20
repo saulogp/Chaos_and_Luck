@@ -1,0 +1,89 @@
+[gd_scene load_steps=14 format=3 uid="uid://bo4f7onrl2l7v"]
+
+[ext_resource type="PackedScene" uid="uid://dytwyhpatngql" path="res://game/powers/power_base.tscn" id="1_owqol"]
+[ext_resource type="Texture2D" uid="uid://b0hjw43jqpjrf" path="res://game/assets/energy_balls/energy_ball_blue.png" id="2_gknvb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffj7v"]
+atlas = ExtResource("2_gknvb")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_754ac"]
+atlas = ExtResource("2_gknvb")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7782"]
+atlas = ExtResource("2_gknvb")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8y2jy"]
+atlas = ExtResource("2_gknvb")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q65h0"]
+atlas = ExtResource("2_gknvb")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvdkt"]
+atlas = ExtResource("2_gknvb")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfy7b"]
+atlas = ExtResource("2_gknvb")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0c4n"]
+atlas = ExtResource("2_gknvb")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdqhl"]
+atlas = ExtResource("2_gknvb")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_278ax"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffj7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_754ac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7782")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8y2jy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q65h0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvdkt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfy7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0c4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdqhl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r86mj"]
+radius = 22.0
+
+[node name="BluePower" node_paths=PackedStringArray("animated_sprite") instance=ExtResource("1_owqol")]
+animated_sprite = NodePath("AnimatedSprite")
+speed = 300.0
+damage = 10
+
+[node name="AnimatedSprite" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_278ax")
+
+[node name="PowerCollision" parent="ColisionArea" index="0"]
+shape = SubResource("CircleShape2D_r86mj")

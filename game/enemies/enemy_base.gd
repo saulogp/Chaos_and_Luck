@@ -6,25 +6,38 @@ class_name EnemyBase extends CharacterBody2D
 @export var damage_collision: CollisionShape2D
 @export var speed: float
 @export var damage: int
+@export var health: int
+
+var is_dead = false
 
 func _process(_delta: float) -> void:
 	_movement()
 	_animation()
 
 func _movement():
-	if Global.player:
+	if Global.player and !is_dead:
 		var direction = (Global.player.global_position - global_position).normalized()
 		velocity = speed * direction
 		move_and_slide()
 
 func _animation():
-	if velocity.x > 0:
-		animated_sprite.flip_h = false
+	if is_dead:
+		animated_sprite.play("death")
+		await animated_sprite.animation_finished
+		queue_free()
 	else:
-		animated_sprite.flip_h = true
-	animated_sprite.play("idle")
+		if velocity.x > 0:
+			animated_sprite.flip_h = false
+		else:
+			animated_sprite.flip_h = true
+		animated_sprite.play("idle")
 
 func _on_area_damage_body_entered(body):
 	var player = body as PlayerController
 	if player and Global.player:
 		player._apply_damage(damage)
+
+func apply_damage(damage: int):
+	health -= damage
+	if health <= 0:
+		is_dead = true
