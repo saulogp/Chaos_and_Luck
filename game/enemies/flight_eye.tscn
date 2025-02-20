@@ -1,7 +1,24 @@
-[gd_scene load_steps=14 format=3 uid="uid://dxegbikm420ri"]
+[gd_scene load_steps=19 format=3 uid="uid://dxegbikm420ri"]
 
 [ext_resource type="PackedScene" uid="uid://drygax70i74j3" path="res://game/enemies/enemy_base.tscn" id="1_fys6y"]
 [ext_resource type="Texture2D" uid="uid://sm25wr7hwidt" path="res://game/assets/flight_eye/flight_eye_flight.png" id="2_jbxhp"]
+[ext_resource type="Texture2D" uid="uid://cn104j6vb0uya" path="res://game/assets/flight_eye/flight_eye_death.png" id="2_u8702"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8bsg"]
+atlas = ExtResource("2_u8702")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bx8t7"]
+atlas = ExtResource("2_u8702")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4albv"]
+atlas = ExtResource("2_u8702")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwt1p"]
+atlas = ExtResource("2_u8702")
+region = Rect2(450, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jmff6"]
 atlas = ExtResource("2_jbxhp")
@@ -39,6 +56,23 @@ region = Rect2(1050, 0, 150, 150)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_a8bsg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bx8t7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4albv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwt1p")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_jmff6")
 }, {
 "duration": 1.0,
@@ -72,15 +106,15 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_3k73a"]
 
 [node name="FlightEye" node_paths=PackedStringArray("animated_sprite", "body_collision") instance=ExtResource("1_fys6y")]
-z_index = 20
 animated_sprite = NodePath("AnimatedSprite")
 body_collision = NodePath("BodyCollision")
 speed = 100.0
 damage = 10
+health = 10
 
 [node name="AnimatedSprite" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_b6ma3")
-animation = &"idle"
+animation = &"death"
 
 [node name="BodyCollision" parent="." index="1"]
 position = Vector2(4, 2)

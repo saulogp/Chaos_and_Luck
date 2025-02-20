@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dbjqjfudlec1w"]
+[gd_scene load_steps=27 format=3 uid="uid://dbjqjfudlec1w"]
 
 [ext_resource type="Script" path="res://game/player/player.gd" id="1_oijf2"]
 [ext_resource type="Texture2D" uid="uid://bckw8f18my4c" path="res://game/assets/wizard/wizard_idle.png" id="2_1pryc"]
@@ -43,10 +43,6 @@ region = Rect2(640, 0, 80, 80)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ifxn6"]
 atlas = ExtResource("2_es21q")
 region = Rect2(720, 0, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h07vu"]
-atlas = ExtResource("2_es21q")
-region = Rect2(80, 0, 80, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k78wi"]
 atlas = ExtResource("2_1pryc")
@@ -127,14 +123,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_h07vu")
-}],
-"loop": false,
-"name": &"hit",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_k78wi")
 }, {
 "duration": 1.0,
@@ -172,35 +160,26 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ver1i"]
 height = 40.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ql18u"]
-bg_color = Color(0.980392, 0.101961, 0.164706, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bt4fd"]
+bg_color = Color(1, 0, 0, 1)
 
 [node name="Player" type="CharacterBody2D"]
-z_index = 10
 script = ExtResource("1_oijf2")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ygptm")
-animation = &"idle"
+animation = &"death"
 
 [node name="BodyCollision" type="CollisionShape2D" parent="."]
 position = Vector2(-4, 0)
 shape = SubResource("CapsuleShape2D_ver1i")
 
 [node name="ProgressBarLife" type="ProgressBar" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -25.0
+offset_left = -21.0
 offset_top = 30.0
-offset_right = 25.0
-offset_bottom = 35.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/fill = SubResource("StyleBoxFlat_ql18u")
-step = 1.0
+offset_right = 19.0
+offset_bottom = 36.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_bt4fd")
 show_percentage = false
 
 [node name="Camera2D" type="Camera2D" parent="."]

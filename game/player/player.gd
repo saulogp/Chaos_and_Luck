@@ -7,6 +7,9 @@ const MAX_HEALTH = 100
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
 @onready var progress_bar_life: ProgressBar = $ProgressBarLife
 
+var fire_rate: float = 1.0
+var time_since_last_shoot: float = 0.0
+
 var takeHit = false
 var current_health: int
 var current_state: PlayerState:
@@ -27,6 +30,11 @@ func _ready():
 func _process(delta):
 	_animation()
 	progress_bar_life.value = current_health
+	
+	time_since_last_shoot += delta
+	if time_since_last_shoot >= fire_rate:
+		_shoot()
+		time_since_last_shoot = 0.0
 
 func _physics_process(_delta: float):
 	_moviment()
@@ -70,3 +78,11 @@ func _apply_damage(damage: int):
 		current_health = 0
 		current_state = PlayerState.Dead
 	
+func _shoot():
+	var random_direction = Vector2.ZERO
+	for p in Global.mypowers:
+		var power = p.instantiate()
+		power.position = position
+		random_direction = Vector2(randf_range(-1, 1), randf_range(-1, 1))
+		power.set_direction(random_direction)
+		get_parent().add_child(power)

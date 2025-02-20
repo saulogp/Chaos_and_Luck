@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dytwyhpatngql"]
+
+[ext_resource type="Script" path="res://game/powers/power_base.gd" id="1_ge5hq"]
+
+[node name="PowerBase" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_ge5hq")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+
+[node name="ColisionArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="PowerCollision" type="CollisionShape2D" parent="ColisionArea"]
+
+[connection signal="body_entered" from="ColisionArea" to="." method="_on_colision_area_body_entered"]
