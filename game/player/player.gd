@@ -55,6 +55,7 @@ func _animation():
 		takeHit = false
 	else:
 		animated_sprite.play("idle")
+	
 
 func _moviment():
 	if current_state == PlayerState.Dead:

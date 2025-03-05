@@ -37,7 +37,7 @@ func _on_area_damage_body_entered(body):
 	if player and Global.player:
 		player._apply_damage(damage)
 
-func apply_damage(damage: int):
-	health -= damage
+func apply_damage(new_damage: int):
+	health -= new_damage
 	if health <= 0:
 		is_dead = true
