@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://df4oggag2g3b4"]
+
+[ext_resource type="PackedScene" uid="uid://b558ygp6drdw3" path="res://game/collectibles/item_base.tscn" id="1_ya15w"]
+[ext_resource type="Texture2D" uid="uid://6e6ujynj37ab" path="res://game/assets/collectibles/food_4.png" id="2_ypsa2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0mkiu"]
+radius = 9.0
+
+[node name="Pizza" instance=ExtResource("1_ya15w")]
+item_value = 10
+item_type = 0
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_ypsa2")
+
+[node name="Collision" parent="." index="1"]
+shape = SubResource("CircleShape2D_0mkiu")

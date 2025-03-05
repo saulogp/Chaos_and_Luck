@@ -1,6 +1,6 @@
 class_name PlayerController extends CharacterBody2D
 
-enum PlayerState {Normal, Dead}
+enum PlayerState { Normal, Dead }
 
 const SPEED = 300.0
 const MAX_HEALTH = 100
@@ -32,7 +32,7 @@ func _process(delta):
 	progress_bar_life.value = current_health
 	
 	time_since_last_shoot += delta
-	if time_since_last_shoot >= fire_rate:
+	if time_since_last_shoot >= fire_rate and current_state != PlayerState.Dead:
 		_shoot()
 		time_since_last_shoot = 0.0
 
@@ -55,7 +55,6 @@ func _animation():
 		takeHit = false
 	else:
 		animated_sprite.play("idle")
-	
 
 func _moviment():
 	if current_state == PlayerState.Dead:
@@ -78,7 +77,7 @@ func _apply_damage(damage: int):
 	if current_health <= 0:
 		current_health = 0
 		current_state = PlayerState.Dead
-	
+
 func _shoot():
 	var random_direction = Vector2.ZERO
 	for p in Global.mypowers:
@@ -87,3 +86,7 @@ func _shoot():
 		random_direction = Vector2(randf_range(-1, 1), randf_range(-1, 1))
 		power.set_direction(random_direction)
 		get_parent().add_child(power)
+
+func _up_health(value):
+	if current_health < MAX_HEALTH:
+		current_health += value

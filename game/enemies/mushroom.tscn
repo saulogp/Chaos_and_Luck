@@ -114,6 +114,7 @@ body_collision = NodePath("BodyCollision")
 speed = 80.0
 damage = 20
 health = 20
+drop_chance = 0.75
 
 [node name="AnimatedSprite" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_eaf6r")

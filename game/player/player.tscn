@@ -175,12 +175,12 @@ height = 40.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bt4fd"]
 bg_color = Color(1, 0, 0, 1)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_oijf2")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ygptm")
-animation = &"hit"
+animation = &"idle"
 
 [node name="BodyCollision" type="CollisionShape2D" parent="."]
 position = Vector2(-4, 0)
