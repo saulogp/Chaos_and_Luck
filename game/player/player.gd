@@ -80,12 +80,14 @@ func _apply_damage(damage: int):
 
 func _shoot():
 	var random_direction = Vector2.ZERO
-	for p in Global.mypowers:
-		var power = p.instantiate()
-		power.position = position
-		random_direction = Vector2(randf_range(-1, 1), randf_range(-1, 1))
-		power.set_direction(random_direction)
-		get_parent().add_child(power)
+	for p in Global.my_powers:
+		var quantity_shoots = Global.powers_dic[p]
+		for i in quantity_shoots:
+			var power = p.instantiate()
+			power.position = position
+			random_direction = Vector2(randf_range(-1, 1), randf_range(-1, 1))
+			power.set_direction(random_direction)
+			get_parent().add_child(power)
 
 func _up_health(value):
 	if current_health < MAX_HEALTH:

@@ -109,8 +109,9 @@ animations = [{
 animated_sprite = NodePath("AnimatedSprite")
 body_collision = NodePath("BodyCollision")
 speed = 100.0
-damage = 10
+damage = 15
 health = 10
+drop_food_chance = 0.25
 
 [node name="AnimatedSprite" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_b6ma3")

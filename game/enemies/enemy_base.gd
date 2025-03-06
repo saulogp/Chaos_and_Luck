@@ -8,6 +8,7 @@ class_name EnemyBase extends CharacterBody2D
 @export var damage: int
 @export var health: int
 @export var drop_chance: float = 0.5
+@export var drop_food_chance: float = 0.5
 
 var is_dead = false
 
@@ -47,10 +48,10 @@ func apply_damage(new_damage: int):
 
 func drop_item():
 	var item: Area2D
-	if randf() <= drop_chance:
-		item = Global.foods[0].instantiate()# implementar aleatoriedade de itens
+	if randf() <= drop_food_chance:
+		item = Global.foods[randi() % Global.foods.size()].instantiate()
 	else:
-		item = Global.itens[0].instantiate()# implementar aleatoriedade de itens
+		item = Global.itens[randi() % Global.itens.size()].instantiate()
 	
 	item.position = position
 	get_parent().call_deferred("add_child",item)

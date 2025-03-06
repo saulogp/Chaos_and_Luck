@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://csy3di8fp2h8"]
+
+[ext_resource type="PackedScene" uid="uid://b558ygp6drdw3" path="res://game/collectibles/item_base.tscn" id="1_iqbrs"]
+[ext_resource type="Texture2D" uid="uid://b26rf2opp4hdf" path="res://game/assets/collectibles/red_gem.png" id="2_losrj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fliun"]
+radius = 9.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqsu6"]
+atlas = ExtResource("2_losrj")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bao3"]
+atlas = ExtResource("2_losrj")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hfjs"]
+atlas = ExtResource("2_losrj")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g30yc"]
+atlas = ExtResource("2_losrj")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pcpbk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqsu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bao3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hfjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g30yc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CoinRuby" node_paths=PackedStringArray("animated_2d") instance=ExtResource("1_iqbrs")]
+item_value = 15
+animated_2d = NodePath("Animated2D")
+
+[node name="Collision" parent="." index="1"]
+shape = SubResource("CircleShape2D_fliun")
+
+[node name="Animated2D" parent="." index="2"]
+sprite_frames = SubResource("SpriteFrames_pcpbk")
