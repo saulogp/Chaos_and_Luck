@@ -49,7 +49,7 @@ animations = [{
 }]
 
 [node name="CoinGold" node_paths=PackedStringArray("animated_2d") instance=ExtResource("1_su3ky")]
-item_value = 10
+item_value = 3
 animated_2d = NodePath("Animated2D")
 
 [node name="Collision" parent="." index="1"]

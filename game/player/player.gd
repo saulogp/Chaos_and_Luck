@@ -7,6 +7,8 @@ const MAX_HEALTH = 100
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
 @onready var progress_bar_life: ProgressBar = $ProgressBarLife
 
+var current_coin = 0
+var current_ruby = 0
 var fire_rate: float = 1.0
 var time_since_last_shoot: float = 0.0
 
@@ -92,3 +94,9 @@ func _shoot():
 func _up_health(value):
 	if current_health < MAX_HEALTH:
 		current_health += value
+
+func _add_coin(value: int):
+	current_coin += value
+
+func _add_ruby(value: int):
+	current_ruby += value

@@ -32,6 +32,5 @@ func _spawn_enemy(e: int):
 		add_child(instance)
 
 func _on_spawn_enemy_timer_timeout() -> void:
-	var e = randi() % 2
-	
-	_spawn_enemy(e)
+	if Global.player:
+		_spawn_enemy(randi() % 2)

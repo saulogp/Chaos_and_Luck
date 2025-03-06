@@ -1,0 +1,121 @@
+[gd_scene load_steps=15 format=3 uid="uid://bq4qeg6yhd6oe"]
+
+[ext_resource type="Script" path="res://game/scenes/hud.gd" id="1_jiq5d"]
+[ext_resource type="Texture2D" uid="uid://co3s4ovhoah8l" path="res://game/assets/collectibles/golden_coin.png" id="1_rdoht"]
+[ext_resource type="Texture2D" uid="uid://b26rf2opp4hdf" path="res://game/assets/collectibles/red_gem.png" id="2_yafgh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53364"]
+atlas = ExtResource("1_rdoht")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2frfj"]
+atlas = ExtResource("1_rdoht")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0fget"]
+atlas = ExtResource("1_rdoht")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tf06p"]
+atlas = ExtResource("1_rdoht")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5nxk"]
+atlas = ExtResource("1_rdoht")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_btaff"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53364")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2frfj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0fget")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tf06p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5nxk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6kqt"]
+atlas = ExtResource("2_yafgh")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13scm"]
+atlas = ExtResource("2_yafgh")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k70tr"]
+atlas = ExtResource("2_yafgh")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rone1"]
+atlas = ExtResource("2_yafgh")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jc8e4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6kqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13scm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k70tr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rone1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jiq5d")
+
+[node name="Coin" type="AnimatedSprite2D" parent="."]
+position = Vector2(25, 28)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_btaff")
+autoplay = "default"
+
+[node name="CoinLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 16.0
+offset_right = 83.0
+offset_bottom = 39.0
+text = "0"
+
+[node name="Ruby" type="AnimatedSprite2D" parent="."]
+position = Vector2(25, 64)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_jc8e4")
+autoplay = "default"
+
+[node name="RubyLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 54.0
+offset_right = 84.0
+offset_bottom = 77.0
+text = "0"
