@@ -176,6 +176,7 @@ height = 40.0
 bg_color = Color(1, 0, 0, 1)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 15
 script = ExtResource("1_oijf2")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
@@ -195,3 +196,4 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_bt4fd")
 show_percentage = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)

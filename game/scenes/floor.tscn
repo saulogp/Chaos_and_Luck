@@ -13,8 +13,8 @@ script = ExtResource("1_h8gj3")
 wait_time = 3.0
 autostart = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="ScreenCanvas" type="CanvasLayer" parent="."]
 
-[node name="Hud" parent="CanvasLayer" instance=ExtResource("3_jxwq1")]
+[node name="Hud" parent="ScreenCanvas" instance=ExtResource("3_jxwq1")]
 
 [connection signal="timeout" from="SpawnEnemyTimer" to="." method="_on_spawn_enemy_timer_timeout"]
