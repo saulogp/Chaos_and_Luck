@@ -173,7 +173,7 @@ animations = [{
 height = 40.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bt4fd"]
-bg_color = Color(1, 0, 0, 1)
+bg_color = Color(0.545098, 0.0313726, 0.0235294, 1)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 15
