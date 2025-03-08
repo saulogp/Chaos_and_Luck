@@ -20,6 +20,6 @@ func collect(player: Node):
 			player._add_coin(item_value)
 		ItemType.RUBY :
 			player._add_ruby(item_value)
-		ItemType.HEALTH:
+		ItemType.HEALTH :
 			player._up_health(item_value)
 	queue_free()

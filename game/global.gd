@@ -6,8 +6,8 @@ var flightEye = preload("res://game/enemies/flight_eye.tscn")
 var mashroom = preload("res://game/enemies/mushroom.tscn")
 var enemies = [flightEye, mashroom]
 var enemies_dic = {
-	flightEye:10, 
-	mashroom:10
+	flightEye:5, 
+	mashroom:5
 }
 
 var bluePower = preload("res://game/powers/blue_power.tscn")

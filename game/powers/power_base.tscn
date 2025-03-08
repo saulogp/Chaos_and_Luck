@@ -14,4 +14,7 @@ collision_mask = 2
 
 [node name="PowerCollision" type="CollisionShape2D" parent="ColisionArea"]
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
 [connection signal="body_entered" from="ColisionArea" to="." method="_on_colision_area_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

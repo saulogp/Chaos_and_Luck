@@ -110,7 +110,7 @@ animated_sprite = NodePath("AnimatedSprite")
 body_collision = NodePath("BodyCollision")
 speed = 100.0
 damage = 15
-health = 10
+health = 30
 drop_food_chance = 0.25
 
 [node name="AnimatedSprite" parent="." index="0"]
