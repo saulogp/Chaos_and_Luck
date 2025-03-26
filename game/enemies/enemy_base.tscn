@@ -1,17 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://drygax70i74j3"]
+[gd_scene load_steps=3 format=3 uid="uid://drygax70i74j3"]
 
 [ext_resource type="Script" path="res://game/enemies/enemy_base.gd" id="1_073h6"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_r11gr"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
 [node name="EnemyBase" type="CharacterBody2D"]
+z_index = 10
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_073h6")
-speed = null
-damage = null
-health = null
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
-animation = &""
+sprite_frames = SubResource("SpriteFrames_r11gr")
+animation = &"idle"
 
 [node name="BodyCollision" type="CollisionShape2D" parent="."]
 

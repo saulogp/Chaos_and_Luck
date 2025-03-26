@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dh7u6lx3unq4t"]
+
+[ext_resource type="PackedScene" uid="uid://b558ygp6drdw3" path="res://game/collectibles/item_base.tscn" id="1_gjpkc"]
+[ext_resource type="Texture2D" uid="uid://mb85dl5h5qrm" path="res://game/assets/collectibles/food_5.png" id="2_sg38d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0lhfl"]
+
+[node name="Coconut" instance=ExtResource("1_gjpkc")]
+item_value = 5
+item_type = 0
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_sg38d")
+
+[node name="Collision" parent="." index="1"]
+shape = SubResource("CircleShape2D_0lhfl")
